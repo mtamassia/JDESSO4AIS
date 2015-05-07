@@ -1,6 +1,6 @@
 # JD Edwards AIS Single Sign On
 
- Proxy end-users via AIS
+ Proxy end-users via AIS to honor native JDE security and data access, eliminating the need to code/redefine security on the code.
  
 #### Why?
  You are using a single application account with AIS but you want to utilize AIS under the context of a specific end-user without having the end-user password. You need this because you want all the end-user permissions and settings to be honored.
