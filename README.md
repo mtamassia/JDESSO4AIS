@@ -11,7 +11,8 @@
 #### Requirements
  - Tools Release 9.1.4 or higher
  - JAR files needed on classpath
-  - AISclient (obtain from JDE Update Center/Change Assistant)
+  - AIS_Client (obtain from JDE Update Center/Change Assistant)
+  - Jackson Annotation, Core, and DataBind (these are distributed with AIS_Client)
   - JavaTokenGenerator from a E1 Web Client (obtain from webclient.ear\webclient.war\WEB-INF\lib)
   - Base_JAR from a E1 Web Client (obtain from webclient.ear\webclient.war\WEB-INF\lib)
 
