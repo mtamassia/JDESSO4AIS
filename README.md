@@ -20,9 +20,15 @@
  You will need to add a new node, define the token lifetime, and set it up as a trusted node to your existing enterprise server (security server). All high-level steps are shown on the  [Security Administration Guide] (https://docs.oracle.com/cd/E24705_01/doc.91/e24258/setup_jde_e1_sso.htm#EOTSC00406) but are detailed below.
  
  1) Verify your existing Enterprise server is already a node. If not add it
+ 
  2) Add a new Node. In our case we are using the generic name SSO4AIS as show below. The password will need to match the password used inside the TokenGen.ini (which must be on classpath)
- 3) Setup the Token Lifetime for the new node as show below.
+ ![Node](https://cloud.githubusercontent.com/assets/3932010/7525852/ea0d00ca-f4da-11e4-956b-22a9105e9762.png)
+ 
+ 3) Setup the Token Lifetime for the new node as show below
+ ![Node](https://cloud.githubusercontent.com/assets/3932010/7525893/2f7bbd0e-f4db-11e4-913e-6ce2d37fb406.png)
+ 
  4) Setup the new node as a Trusted Node to your enterprise server
+ 
  5) Restart enterprise server
  
 
