@@ -39,14 +39,15 @@ import java.util.Locale;
  */
 public class E1Token {
 
-    private static final String AIS_SERVER_URL = "http://91web.cloud.emeraldcube.net:8183";
+    private static final String AIS_SERVER_URL = "http://ais.company.com:8183";
     private static final String DEVICE = "Java";
     private static final String JDE_ENVIRONMENT = "JDV910";
     private static final String JDE_USER_ROLE = "*ALL";
     private static final String JDE_CAPABILITY_LIST = "grid,editable,log,processingOption,ignoreFDAFindOnEntry,selectAllGridRows,thumbnailSize,gridCellClick,query,urlMediaObjects";
 
     public static void main(String[] args) {
-        getLoginAIS("DVIGGIANI");
+        //
+        LoginEnvironment lEnv = getLoginAIS("TESTUSER");
     }
 
     /**
@@ -55,13 +56,13 @@ public class E1Token {
      *
      */
     private static LoginEnvironment getLoginAIS(String e1User) {
-        LoginEnvironment loginEnv = null;
+        LoginEnvironment lEnv = null;
 
         try {
             Logger.l("Performing token authentication for user " + e1User);
             // Obtain token for user and log in
-            loginEnv = new LoginEnvironment(AIS_SERVER_URL, e1User, null, JDE_ENVIRONMENT, JDE_USER_ROLE, DEVICE, JDE_CAPABILITY_LIST, null, getE1Token(e1User));
-            Logger.l("User " + e1User + " logged in with Session ID " + loginEnv.getJSessionId());
+            lEnv = new LoginEnvironment(AIS_SERVER_URL, e1User, null, JDE_ENVIRONMENT, JDE_USER_ROLE, DEVICE, JDE_CAPABILITY_LIST, null, getE1Token(e1User));
+            Logger.l("User " + e1User + " logged in with Session ID " + lEnv.getJSessionId());
         } catch (CapabilityException ex) {
             Logger.l("Capability Exception");
             Logger.l(ex);
@@ -73,7 +74,7 @@ public class E1Token {
             Logger.l(ex);
         }
 
-        return loginEnv;
+        return lEnv;
     }
 
     /**
