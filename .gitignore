@@ -10,3 +10,24 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/SSO4AIS/nbproject/private/
+/SSO4AIS/nbproject/
+/SSO4AIS/build/
+/SSO4AIS/dist/
+/SSO4AIS/manifest.mf
+
+/bin
+/lib
+/build
+
+output/
+nbproject/
+dist/
+nbdist/
+*.log
+
+# PID Files
+*.pid
+*.PID
+
+build.xml
