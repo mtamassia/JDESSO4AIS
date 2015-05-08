@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.emeraldcube.ais.sample.addressbook;
+package com.emeraldcube.ais.samples;
 
 import com.emeraldcube.ais.objects.p01012.P01012_W01012B_FormParent;
 import com.emeraldcube.ais.objects.p01012.P01012_W01012B_GridRow;
@@ -38,7 +38,7 @@ import java.io.IOException;
 /**
  * @author mtamassia Created on May 8, 2015 6:30:32 PM
  */
-public class Main {
+public class AddressBook {
 
     public static void main(String[] args) {
         // Perform call
