@@ -37,31 +37,65 @@ import java.util.Locale;
 /**
  * @author mtamassia Created on May 7, 2015 3:27:51 PM
  */
-public class E1Token {
-
-    private static final String AIS_SERVER_URL = "http://ais.company.com:8183";
-    private static final String DEVICE = "Java";
-    private static final String JDE_ENVIRONMENT = "JDV910";
-    private static final String JDE_USER_ROLE = "*ALL";
-    private static final String JDE_CAPABILITY_LIST = "grid,editable,log,processingOption,ignoreFDAFindOnEntry,selectAllGridRows,thumbnailSize,gridCellClick,query,urlMediaObjects";
-
-    public static void main(String[] args) {
-        //
-        LoginEnvironment lEnv = getLoginAIS("TESTUSER");
-    }
+public class Login {
 
     /**
      * @param e1User String
      * @return LoginEnvironment
      *
      */
-    private static LoginEnvironment getLoginAIS(String e1User) {
+    public static LoginEnvironment getLoginAIS(String e1User) {
+        return getLoginAIS(e1User, null, null, null);
+    }
+
+    /**
+     * @param e1User String
+     * @param e1UserRole
+     * @return LoginEnvironment
+     *
+     */
+    public static LoginEnvironment getLoginAIS(String e1User, String e1UserRole) {
+        return getLoginAIS(e1User, e1UserRole, null, null);
+    }
+
+    /**
+     * @param e1User String
+     * @param e1UserRole
+     * @param e1Environment
+     * @return LoginEnvironment
+     *
+     */
+    public static LoginEnvironment getLoginAIS(String e1User, String e1UserRole, String e1Environment) {
+        return getLoginAIS(e1User, e1UserRole, e1Environment, null);
+    }
+
+    /**
+     * @param e1User String
+     * @param e1UserRole
+     * @param e1Environment
+     * @param capabilityList
+     * @return LoginEnvironment
+     *
+     */
+    public static LoginEnvironment getLoginAIS(String e1User, String e1UserRole, String e1Environment, String capabilityList) {
         LoginEnvironment lEnv = null;
+
+        if (e1UserRole == null || e1UserRole.isEmpty()) {
+            e1UserRole = Constants.DEFAULT_JDE_USER_ROLE;
+        }
+
+        if (e1Environment == null || e1Environment.isEmpty()) {
+            e1Environment = Constants.DEFAULT_JDE_ENVIRONMENT;
+        }
+
+        if (capabilityList == null || capabilityList.isEmpty()) {
+            capabilityList = Constants.DEFAULT_JDE_CAPABILITY_LIST;
+        }
 
         try {
             Logger.l("Performing token authentication for user " + e1User);
             // Obtain token for user and log in
-            lEnv = new LoginEnvironment(AIS_SERVER_URL, e1User, null, JDE_ENVIRONMENT, JDE_USER_ROLE, DEVICE, JDE_CAPABILITY_LIST, null, getE1Token(e1User));
+            lEnv = new LoginEnvironment(Constants.AIS_SERVER_URL, e1User, null, e1Environment, e1UserRole, Constants.DEVICE, capabilityList, null, getE1Token(e1User));
             Logger.l("User " + e1User + " logged in with Session ID " + lEnv.getJSessionId());
         } catch (CapabilityException ex) {
             Logger.l("Capability Exception");
